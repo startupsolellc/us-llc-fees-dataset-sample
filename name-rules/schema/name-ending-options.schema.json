@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Name ending options v1 (existing-record projection)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "entityScope", "reviewStatus", "coverage", "options", "sources", "provenance", "reviewedOn", "reviewNote"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "entityScope": { "const": "domestic_llc" },
+    "reviewStatus": { "enum": ["verified", "needs_review"] },
+    "coverage": { "enum": ["verified_subset", "not_verified"] },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "value", "sourceIds", "recordQuote"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^ending-[a-f0-9]{16}$" },
+          "value": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "sourceIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^source-[0-9]+$" } },
+          "recordQuote": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "recordSourceRef"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^source-[0-9]+$" },
+          "recordSourceRef": { "type": "string", "pattern": "^/sources/(0|[1-9][0-9]*)$" }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basis", "sourceCommit", "recordPath", "inputSha256"],
+      "properties": {
+        "basis": { "const": "existing_record" },
+        "sourceCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "recordPath": { "type": "string", "pattern": "^name-rules/states/[a-z-]+\\.json$" },
+        "inputSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "reviewedOn": { "type": ["string", "null"], "format": "date" },
+    "reviewNote": { "type": ["string", "null"], "minLength": 1 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "reviewStatus": { "const": "verified" } } },
+      "then": {
+        "properties": {
+          "coverage": { "const": "verified_subset" },
+          "options": { "minItems": 1 },
+          "sources": { "minItems": 1 },
+          "reviewedOn": { "type": "string" }
+        }
+      },
+      "else": {
+        "properties": {
+          "coverage": { "const": "not_verified" },
+          "options": { "maxItems": 0 },
+          "reviewNote": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  ]
+}

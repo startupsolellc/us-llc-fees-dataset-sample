@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/us-llc-fees-dataset/agent-rules/schema/state.schema.json",
+  "title": "Registered-agent eligibility rules, per jurisdiction",
+  "description": "Records who may serve as an LLC's registered agent: whether an individual may hold the seat, whether the LLC itself may be its own agent, what conditions attach to that individual, whether a commercial mail receiving agency address is acceptable, and the address rule - the last three in the state's own words. This namespace is authoritative for registered-agent eligibility; contact details stay in entitysearch-state-data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stateName",
+    "stateAbbr",
+    "stateSlug",
+    "registeredAgent",
+    "notes",
+    "needsReview",
+    "sources",
+    "lastVerified"
+  ],
+  "properties": {
+    "stateName": { "type": "string", "minLength": 2 },
+    "stateAbbr": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "stateSlug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+
+    "registeredAgent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["individualCanBeAgent", "individualRule", "llcCanBeOwnAgent", "cmraAllowed", "addressRule", "evidence"],
+      "properties": {
+        "individualCanBeAgent": {
+          "type": ["boolean", "null"],
+          "description": "Whether a natural person may serve as the registered agent - the filer, a member, a manager or any other qualifying individual, as opposed to a commercial agent that must be hired. This is a different question from llcCanBeOwnAgent, which asks only about the company as an entity, and the two have different answers in every state that bars entity self-agency while admitting a resident individual. false is a researched finding and requires evidence; null means not yet researched. Conditions on the individual - residency, membership, age - belong in notes, not in this boolean.",
+          "$comment": "E13. Added 2026-08-10 because the published boolean answered a narrower question than the one a reader asks."
+        },
+        "individualRule": {
+          "type": ["string", "null"],
+          "description": "The conditions a natural person must meet to serve, in the state's own words: residency, age, role, membership. Verbatim and unedited, the same licence addressRule has - never paraphrased, classified or shortened into a badge. Where the eligibility provision attaches no condition beyond the address rule, quote the provision that attaches none: an absence of conditions is recorded by the sentence that fails to impose them, never by null. null means the eligibility wording has not been read.",
+          "$comment": "E14. Added 2026-08-10: individualCanBeAgent true renders as 'allowed', which is too strong where the state qualifies who that individual may be."
+        },
+        "llcCanBeOwnAgent": {
+          "type": ["boolean", "null"],
+          "description": "Whether the LLC itself may serve as its own registered agent. false is a researched finding and requires evidence from the registered-agent provision that would have said so; null means not yet researched."
+        },
+        "cmraAllowed": {
+          "type": ["boolean", "null"],
+          "description": "Whether a commercial mail receiving agency (CMRA) may serve as the registered office or address. false is a researched finding and requires evidence."
+        },
+        "addressRule": {
+          "type": ["string", "null"],
+          "description": "The address requirement in the state's own words: physical street address, P.O. box policy, business-office requirement."
+        },
+        "evidence": { "$ref": "#/definitions/evidenceList" }
+      }
+    },
+
+    "notes": {
+      "type": "string",
+      "description": "Anything the fields cannot carry without lying: the definitional calls behind llcCanBeOwnAgent and cmraAllowed."
+    },
+    "needsReview": {
+      "type": ["string", "null"],
+      "description": "What is missing and what would settle it."
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["citation", "title", "url", "type", "lastAccessed"],
+        "properties": {
+          "citation": { "type": "string" },
+          "title": { "type": "string" },
+          "url": { "type": "string", "pattern": "^https?://" },
+          "type": {
+            "oneOf": [
+              { "type": "null" },
+              { "enum": ["statute", "agency-page", "fee-schedule", "official-pdf"] }
+            ],
+            "description": "Source class, for deriving record confidence mechanically. null where none of the classes fits."
+          },
+          "lastAccessed": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+        }
+      }
+    },
+    "lastVerified": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "The date the cited pages were retrieved and every quoted passage was mechanically confirmed to occur in them."
+    }
+  },
+
+  "definitions": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["quote", "url"],
+      "properties": {
+        "quote": {
+          "type": "string",
+          "minLength": 20,
+          "description": "One contiguous verbatim passage, copied from the page as retrieved, artefacts included. Never assembled across an ellipsis, never taken from a search snippet, never tidied."
+        },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "supports": {
+          "type": "string",
+          "description": "Which value in the enclosing object this passage grounds, by field name (individualCanBeAgent, individualRule, llcCanBeOwnAgent, cmraAllowed, addressRule). A record carrying several passages is only honest if each one says what it is evidence for. One passage may ground two values; repeat it under each supports rather than letting one entry claim both."
+        }
+      }
+    },
+    "evidenceList": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/evidence" }
+    }
+  }
+}

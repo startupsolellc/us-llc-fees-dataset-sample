@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-08-10",
+  "license": "All rights reserved - preview sample, see LICENSE",
+  "note": "Preview sample: 1 of 51 jurisdiction records. The full file covers all 50 states and the District of Columbia.",
+  "states": {
+    "NM": {
+      "name": "New Mexico",
+      "anonymous_llc_available": true,
+      "formation_document_requires_names": false,
+      "annual_report_publishes_names": false,
+      "full_public_anonymity": true,
+      "source_url": "https://nmonesource.com/nmos/nmsa-unanno/en/18556/1/document.do",
+      "last_verified": "2026-08-10",
+      "formation_source_quote": "The articles of organization shall set forth: A. a name for the limited liability company that satisfies the requirements of Section 53-19-3 NMSA 1978; B. the street address of the initial registered office and the name of the initial registered agent at that address and the street address of the limited liability company's current principal place of business, if different from the address of its registered office; C. the period of duration, if other than perpetual; D. if management of the limited liability company is vested to any extent in a manager, a statement to that effect; E. if the limited liability company may carry on its business and affairs as a single member limited liability company, a statement to that effect; and F. any other provision that the persons signing the articles choose to include in the articles, including provisions for the regulation of the internal affairs of the limited liability company.",
+      "annual_report_source_url": "https://nmonesource.com/nmos/nmsa-unanno/en/18556/1/document.do",
+      "annual_report_source_quote": null
+    }
+  }
+}

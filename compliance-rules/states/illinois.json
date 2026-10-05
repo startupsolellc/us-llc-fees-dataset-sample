@@ -1,0 +1,39 @@
+{
+  "stateName": "Illinois",
+  "stateAbbr": "IL",
+  "stateSlug": "illinois",
+  "compliance": {
+    "lateFeeUsd": 100,
+    "lateFeeRatePercentPerMonth": null,
+    "lateFeeBasis": "flat",
+    "reinstatementFeeUsd": 200,
+    "reinstatementNote": "Reinstatement costs $200 and requires every report then due to be filed and all fees and penalties paid with the application.",
+    "administrativeDissolutionAfterDays": 120,
+    "administrativeDissolutionAfterMonths": null,
+    "evidence": [
+      {
+        "quote": "a penalty of $100 plus $100 for each year or fraction thereof beginning with the second year of delinquency until returned to good standing or until reinstatement is effected",
+        "url": "https://www.ilga.gov/legislation/ILCS/details?ActID=2290&ChapterID=65&ChapAct=FullText",
+        "supports": "lateFeeUsd, lateFeeBasis"
+      },
+      {
+        "quote": "Filing an application for reinstatement of a limited liability company or foreign limited liability company, $200.",
+        "url": "https://www.ilga.gov/legislation/ILCS/details?ActID=2290&ChapterID=65&ChapAct=FullText",
+        "supports": "reinstatementFeeUsd"
+      },
+      {
+        "quote": "The Secretary of State may dissolve any limited liability company administratively if: (1) it has failed to file its annual report and pay its fee as required by this Act before the first day of the anniversary month",
+        "url": "https://www.ilga.gov/legislation/ILCS/details?ActID=2290&ChapterID=65&ChapAct=FullText",
+        "supports": "administrativeDissolutionAfterDays"
+      },
+      {
+        "quote": "If the limited liability company does not correct the default described in paragraphs (1) or (2) of Section 35-25 within 120 days following the date of the notice of delinquency, the Secretary of State shall thereupon dissolve the limited liability company by issuing a certificate of dissolution",
+        "url": "https://www.ilga.gov/legislation/ILCS/details?ActID=2290&ChapterID=65&ChapAct=FullText",
+        "supports": "administrativeDissolutionAfterDays"
+      }
+    ]
+  },
+  "notes": "The annual report costs $75 and is due before the first day of the anniversary month. The $100 recorded here is the first year's penalty and it escalates: 805 ILCS 180/50-1 adds a further $100 for each year or fraction of continued delinquency.",
+  "needsReview": null,
+  "lastVerified": "2026-08-11"
+}

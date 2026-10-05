@@ -1,0 +1,46 @@
+{
+  "stateName": "Nevada",
+  "stateAbbr": "NV",
+  "stateSlug": "nevada",
+  "registeredAgent": {
+    "individualCanBeAgent": true,
+    "individualRule": "An individual or a domestic or foreign entity that serves in this State as the agent for service of process of an entity",
+    "llcCanBeOwnAgent": null,
+    "cmraAllowed": null,
+    "addressRule": "An actual street address or rural route box number in this State; and A mailing address in this State, if different from the address under subsection 1.",
+    "evidence": [
+      {
+        "quote": "An individual or a domestic or foreign\nentity that serves in this State as the agent for service of process of an\nentity",
+        "url": "https://www.leg.state.nv.us/NRS/NRS-077.html",
+        "supports": "llcCanBeOwnAgent"
+      },
+      {
+        "quote": "Whenever\na provision of this chapter requires that a filing state an address, the filing\nmust state:",
+        "url": "https://www.leg.state.nv.us/NRS/NRS-077.html",
+        "supports": "addressRule"
+      },
+      {
+        "quote": "An individual or a domestic or foreign\nentity that serves in this State as the agent for service of process of an\nentity",
+        "url": "https://www.leg.state.nv.us/NRS/NRS-077.html",
+        "supports": "individualCanBeAgent"
+      },
+      {
+        "quote": "An individual or a domestic or foreign\nentity that serves in this State as the agent for service of process of an\nentity",
+        "url": "https://www.leg.state.nv.us/NRS/NRS-077.html",
+        "supports": "individualRule"
+      }
+    ]
+  },
+  "notes": "Nevada keeps its registered-agent law outside the LLC chapter, in NRS 77, the Model Registered Agents Act, and NRS 77.140 defines a noncommercial registered agent as an individual or a domestic or foreign entity that serves 'as the agent for service of process of an entity' - the Montana wording, 'of an entity' rather than North Dakota's 'for another entity'. A6 set Montana null on exactly that difference and A9's Utah followed it; Nevada is the third state in the same family and takes the same null. Nothing in NRS 77 prohibits the represented company from serving itself and nothing admits it. The address rule is the Model Act's standard, at NRS 77.300: a filing that must state an address must give an actual street address or rural route box number in Nevada, plus a Nevada mailing address if different. Nevada also runs a paid registration for those willing to serve (NRS 77.305, $500 per office location) and imposes duties on agents that no other state read so far carries, including verifying the licensure of entities in regulated lending businesses.",
+  "needsReview": "llcCanBeOwnAgent and cmraAllowed are both null. Secretary of State filing guidance would settle the first; for the second, NRS 77.300 requires an actual street address or rural route box number, which a commercial mail receiving agency satisfies on its face, so the chapter does not reach the question. Note that the leg.state.nv.us page renders quotation marks and section symbols as Windows-1252 mojibake, so quotes must be picked from passages that avoid them.",
+  "sources": [
+    {
+      "citation": "NRS 77.140 - 'Noncommercial registered agent' defined; NRS 77.300 - Addresses in filings (Model Registered Agents Act)",
+      "title": "NRS: Chapter 77 - Model Registered Agents Act",
+      "url": "https://www.leg.state.nv.us/NRS/NRS-077.html",
+      "type": "statute",
+      "lastAccessed": "2026-08-09"
+    }
+  ],
+  "lastVerified": "2026-08-09"
+}

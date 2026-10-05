@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.1",
+  "last_updated": "2026-10-01",
+  "license": "All rights reserved - preview sample, see LICENSE",
+  "note": "Preview sample: 1 of 50 state records. The full file covers all 50 states.",
+  "states": {
+    "WY": {
+      "name": "Wyoming",
+      "formation_fee": 100,
+      "annual_report_fee": 60,
+      "annual_report_due_date": "First day of anniversary month",
+      "state_income_tax_rate": null,
+      "official_link": "https://sos.wyo.gov/Business/docs/BusinessFees.pdf",
+      "last_verified": "2026-09-03",
+      "source_url": "https://sos.wyo.gov/Business/docs/BusinessFees.pdf"
+    }
+  }
+}

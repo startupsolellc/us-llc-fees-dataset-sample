@@ -1,0 +1,59 @@
+{
+  "stateName": "Maryland",
+  "stateAbbr": "MD",
+  "stateSlug": "maryland",
+  "expedite": {
+    "offered": true,
+    "offeredEvidence": null,
+    "appliesToLlcFormation": null,
+    "feeIsPerDocument": true,
+    "chargedIfRejected": false,
+    "tiers": [
+      {
+        "tierName": "Dropbox for Charter Filings  -  Expedited / Same-day Service",
+        "turnaround": "same-day",
+        "feeUsd": 425,
+        "feeUsdMin": null,
+        "feeUsdMax": null,
+        "cutoff": "in by 10:00AM out by 3:45PM",
+        "channels": [
+          "in-person"
+        ],
+        "note": "Drop-box service at the Baltimore office. The cut-off wording quoted here is the Department's description of its Rush drop-box, stated separately from the fee.",
+        "evidence": {
+          "quote": "all filings must include payment for the $425 expedited fee in addition to the base filing fee",
+          "url": "https://dat.maryland.gov/businesses"
+        }
+      }
+    ]
+  },
+  "standardProcessing": {
+    "isPublished": true,
+    "basis": "stated-range",
+    "queueAsOfOnline": null,
+    "queueAsOfMail": null,
+    "onlineBusinessDays": null,
+    "mailBusinessDays": null,
+    "statement": "Non-Expedited Filings • Filings without an expedited fee will be reviewed during the second calendar month after submission. • Example: A non-expedited filing submitted in July will be reviewed in September.",
+    "sourceUrl": "https://egov.maryland.gov/BusinessExpress/Home/ProcessingTimes",
+    "observedOn": "2026-08-09",
+    "volatile": true
+  },
+  "notes": "The tier recorded here is the Department of Assessments and Taxation's in-person drop-box service at 123 Market Place, Baltimore, priced at $425 on top of the base filing fee, with same-day contact if a document needs correction and no guarantee if the stated procedure is not followed. Maryland also charges an expedited fee on filings made through its online business portal, and that figure is not on this page  -  so this record currently describes one channel of Maryland's expedite offering, not all of it. Whether the drop-box service covers an LLC's Articles of Organization specifically is stated on this page only as 'Charter Filings'. Standard processing added SP2 2026-08-09 from Maryland Business Express's Processing Times page, and three things about it are worth the space. First, the figure: SDAT does not express the free lane in days at all. 'Filings without an expedited fee will be reviewed during the second calendar month after submission', with the state's own worked example - submitted in July, reviewed in September. Both day-range fields stay null because a calendar-month rule does not convert into business days without inventing precision the state did not publish; the statement carries it verbatim, which is what statement is for. Second, a trap that would have put a defect in this record. The page prints '7-14 business days' immediately below the non-expedited block and it does not belong to it: SDAT emits the Non-Expedited bullets as one list, then closes it and opens a second, unheaded list whose own next bullet reads 'Expedited filings are not reviewed before the 7th business day'. The second list is the Expedited block with its heading dropped in the CMS. Read as rendered text the 7-14 looks like the standard turnaround and is roughly four times too fast. Third, the queue table further down is real but is not this field's: every column is labelled 'Expedited Processing' and the page says the dates 'Apply only to filings submitted through Maryland Business Express using Expedited Service' and 'Do not include paper filings'. The LLC row read 07/24/2026 for submissions and 07/27/2026 for resubmissions on this date - i.e. even the paid lane was running about two weeks behind - and none of that describes a non-expedited filing, so basis is stated-range and the queue fields stay null.",
+  "needsReview": "The non-expedited rule is a calendar-month statement, not a day range, so onlineBusinessDays and mailBusinessDays are both null by design. The page also carries an expedited queue table (LLC: 07/24/2026 submissions, 07/27/2026 resubmissions as observed) which this namespace has no field for; if a consumer ever needs the paid lane's queue, that is where it lives.",
+  "sources": [
+    {
+      "citation": "Maryland State Department of Assessments and Taxation",
+      "title": "Businesses  -  Dropbox for Charter Filings, Expedited / Same-day Service $425",
+      "url": "https://dat.maryland.gov/businesses",
+      "lastAccessed": "2026-08-06"
+    },
+    {
+      "citation": "Maryland State Department of Assessments and Taxation, via Maryland Business Express",
+      "title": "Processing Times - the Processing Speeds block, whose Non-Expedited rule is review during the second calendar month after submission, alongside Rush service ($325 online, $425 paper two-hour) and an expedited-only queue table by filing type",
+      "url": "https://egov.maryland.gov/BusinessExpress/Home/ProcessingTimes",
+      "lastAccessed": "2026-08-09"
+    }
+  ],
+  "lastVerified": "2026-08-09"
+}

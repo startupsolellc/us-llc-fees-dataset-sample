@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "2.0.0",
+  "stateName": "Delaware",
+  "stateAbbr": "DE",
+  "stateSlug": "delaware",
+  "entityScope": "domestic_llc",
+  "obligationType": "periodic_report",
+  "acceptedUserInputs": ["state", "formation_date"],
+  "systemInputs": ["asOfDate"],
+  "outcome": "not_required",
+  "readiness": "production_ready",
+  "blockerCodes": [],
+  "calculation": null,
+  "lineage": {
+    "recordRef": "entitysearch-state-data/states/delaware.json#",
+    "factRefs": [
+      "entitysearch-state-data/states/delaware.json#/renewals/notes"
+    ],
+    "officialActionRef": null,
+    "officialSourceRefs": [
+      "entitysearch-state-data/states/delaware.json#/sources/2"
+    ],
+    "verificationRef": "entitysearch-state-data/states/delaware.json#/lastVerified"
+  },
+  "lastVerified": "2026-08-22",
+  "notes": "The authoritative record expressly says Delaware LLCs do not file annual reports. The annual tax is outside this contract."
+}
